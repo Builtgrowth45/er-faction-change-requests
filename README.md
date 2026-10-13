@@ -93,3 +93,7 @@ the approval stops with a message naming the field, and **nothing** is changed.
 - **Not done:** an install on a real XenForo, because there's no licence or copy here. The parts most
   worth watching on the first install are the XenForo template syntax, the profile field write, and
   the custom alert templates (`alert_user_er_faction_*`).
+
+## Licence
+
+MIT, see `LICENSE`. Empire Rising (or anyone) is free to use, change and redistribute it.
