@@ -65,6 +65,7 @@ def write_zip():
                 full = os.path.join(root, f)
                 z.write(full, os.path.relpath(full, HERE).replace(os.sep, "/"))
         z.write(os.path.join(HERE, "README.md"), "README.md")
+        z.write(os.path.join(HERE, "LICENSE"), "LICENSE")
     return out
 
 if __name__ == "__main__":
