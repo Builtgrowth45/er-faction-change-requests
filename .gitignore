@@ -1,0 +1,4 @@
+# Local working files, not part of the add-on
+preview/
+forum_post*.txt
+*.zip

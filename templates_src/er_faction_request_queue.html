@@ -1,0 +1,59 @@
+<xf:title>Faction change requests</xf:title>
+<xf:breadcrumb href="{{ link('faction-requests') }}">Faction change</xf:breadcrumb>
+
+<xf:if is="!$approveAny">
+	<div class="blockMessage">You're seeing requests to join your own faction.</div>
+</xf:if>
+
+<xf:if is="$rows is empty">
+	<div class="blockMessage">No requests are waiting.</div>
+</xf:if>
+
+<xf:foreach loop="$rows" value="$row">
+	<div class="block">
+		<div class="block-container">
+			<h2 class="block-header">
+				<xf:username user="$row.request.User" rich="true" /> ·
+				<xf:date time="{$row.request.request_date}" />
+			</h2>
+			<div class="block-body">
+				<xf:formrow label="In-game name">{$row.current.ign} &rarr; <b>{$row.request.ign}</b></xf:formrow>
+				<xf:formrow label="Faction">{$row.currentFactionLabel} &rarr; <b>{$row.request.faction_label}</b></xf:formrow>
+				<xf:formrow label="Rank">{$row.current.rank} &rarr; <b>{$row.newRank}</b> (R{$row.request.faction_rank})</xf:formrow>
+				<xf:formrow label="Department">{$row.current.department} &rarr; <b>{$row.request.department}</b></xf:formrow>
+				<xf:if is="$row.request.note">
+					<xf:formrow label="Note">{$row.request.note}</xf:formrow>
+				</xf:if>
+			</div>
+			<div class="block-footer">
+				<xf:form action="{{ link('faction-requests/approve', $row.request) }}" style="display: inline-block; margin-right: 10px;">
+					<xf:button type="submit" class="button--primary">Approve</xf:button>
+				</xf:form>
+				<xf:form action="{{ link('faction-requests/reject', $row.request) }}" style="display: inline-block;">
+					<xf:textbox name="reason" maxlength="255" placeholder="Reason, shown to the member" style="width: 260px; display: inline-block;" />
+					<xf:button type="submit">Reject</xf:button>
+				</xf:form>
+			</div>
+		</div>
+	</div>
+</xf:foreach>
+
+<xf:if is="$recent is not empty">
+	<div class="block">
+		<div class="block-container">
+			<h2 class="block-header">Recent decisions</h2>
+			<ol class="block-body">
+				<xf:foreach loop="$recent" value="$request">
+					<li class="block-row block-row--separated">
+						<div class="contentRow-minor">
+							<xf:date time="{$request.resolved_date}" /> · <b>{$request.status_label}</b>
+							by <xf:username user="$request.Resolver" defaultname="?" />
+						</div>
+						<xf:username user="$request.User" /> &rarr; {$request.ign} · {$request.faction_label} · {$request.rank_title}<xf:if is="$request.department"> · {$request.department}</xf:if>
+						<xf:if is="$request.reject_reason"> &mdash; <i>{$request.reject_reason}</i></xf:if>
+					</li>
+				</xf:foreach>
+			</ol>
+		</div>
+	</div>
+</xf:if>

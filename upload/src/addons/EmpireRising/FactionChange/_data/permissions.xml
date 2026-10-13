@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+  <permission permission_group_id="erFaction" permission_id="request" permission_type="flag" interface_group_id="erFaction" display_order="10"/>
+  <permission permission_group_id="erFaction" permission_id="approveOwn" permission_type="flag" interface_group_id="erFaction" display_order="20"/>
+  <permission permission_group_id="erFaction" permission_id="approveAny" permission_type="flag" interface_group_id="erFaction" display_order="30"/>
+</permissions>

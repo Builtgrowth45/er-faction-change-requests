@@ -1,0 +1,17 @@
+{
+    "legacy_addon_id": "",
+    "title": "Faction Change Requests",
+    "description": "Players request a faction, rank and department change from a form; staff or that faction's leaders approve it, and the profile fields and faction user group update automatically.",
+    "version_id": 1000010,
+    "version_string": "1.0.0",
+    "dev": "",
+    "dev_url": "",
+    "faq_url": "",
+    "support_url": "",
+    "extra_urls": [],
+    "require": {
+        "XF": [2020010, "XenForo 2.2.0+"],
+        "php": ["7.2.0", "PHP 7.2.0+"]
+    },
+    "icon": "fa-flag"
+}

@@ -1,0 +1,87 @@
+<xf:title>Faction change</xf:title>
+
+<xf:if is="$canApprove">
+	<xf:pageaction>
+		<xf:button href="{{ link('faction-requests/queue') }}">Review requests ({$pendingCount})</xf:button>
+	</xf:pageaction>
+</xf:if>
+
+<div class="block">
+	<div class="block-container">
+		<h2 class="block-header">Your current details</h2>
+		<div class="block-body">
+			<xf:formrow label="In-game name">{$current.ign}</xf:formrow>
+			<xf:formrow label="Faction">{$currentFactionLabel}</xf:formrow>
+			<xf:formrow label="Rank">{$current.rank}</xf:formrow>
+			<xf:if is="$current.department">
+				<xf:formrow label="Department">{$current.department}</xf:formrow>
+			</xf:if>
+		</div>
+	</div>
+</div>
+
+<xf:if is="$pending">
+	<div class="blockMessage blockMessage--important">
+		Your request to change to <b>{$pending.faction_label}</b>, <b>{$pending.rank_title}</b>
+		(R{$pending.faction_rank})<xf:if is="$pending.department">, department <b>{$pending.department}</b></xf:if>,
+		sent <xf:date time="{$pending.request_date}" />, is waiting for approval.
+		<xf:form action="{{ link('faction-requests/cancel', $pending) }}" style="display: inline;">
+			<xf:button type="submit" class="button--small">Cancel request</xf:button>
+		</xf:form>
+	</div>
+<xf:elseif is="$cooldownUntil" />
+	<div class="blockMessage">
+		You changed faction recently. You can send a new request after <xf:date time="{$cooldownUntil}" />.
+	</div>
+<xf:elseif is="!$canRequest" />
+	<div class="blockMessage">You don't have permission to request a faction change.</div>
+<xf:else />
+	<xf:form action="{{ link('faction-requests/submit') }}" class="block">
+		<div class="block-container">
+			<h2 class="block-header">Request a change</h2>
+			<div class="block-body">
+				<xf:textboxrow name="ign" value="{$current.ign}" maxlength="100"
+					label="In-game name" />
+
+				<xf:selectrow name="faction" value="{$current.faction}" label="Faction">
+					<xf:foreach loop="$factionOptions" key="$factionKey" value="$factionLabel">
+						<xf:option value="{$factionKey}">{$factionLabel}</xf:option>
+					</xf:foreach>
+				</xf:selectrow>
+
+				<xf:selectrow name="faction_rank" value="0" label="Rank"
+					explain="Your in-game rank. The approver checks it before accepting, and your title (Detective, Consul, CEO...) is filled in for you.">
+					<xf:foreach loop="$rankOptions" key="$rankValue" value="$rankLabel">
+						<xf:option value="{$rankValue}">{$rankLabel}</xf:option>
+					</xf:foreach>
+				</xf:selectrow>
+
+				<xf:textboxrow name="department" value="{$current.department}" maxlength="100"
+					label="Department or cell" explain="Leave blank if you're not in one." />
+
+				<xf:textarearow name="note" rows="2" autosize="true" maxlength="500"
+					label="Note for the approver" explain="Optional. Who promoted you, or anything they should know." />
+			</div>
+			<xf:submitrow submit="Send request" />
+		</div>
+	</xf:form>
+</xf:if>
+
+<xf:if is="$history is not empty">
+	<div class="block">
+		<div class="block-container">
+			<h2 class="block-header">Your requests</h2>
+			<ol class="block-body">
+				<xf:foreach loop="$history" value="$request">
+					<li class="block-row block-row--separated">
+						<div class="contentRow-minor"><xf:date time="{$request.request_date}" /> · <b>{$request.status_label}</b></div>
+						{$request.ign} · {$request.faction_label} · {$request.rank_title} (R{$request.faction_rank})<xf:if is="$request.department"> · {$request.department}</xf:if>
+						<xf:if is="$request.reject_reason">
+							<div class="blockMessage blockMessage--error blockMessage--small">{$request.reject_reason}</div>
+						</xf:if>
+					</li>
+				</xf:foreach>
+			</ol>
+		</div>
+	</div>
+</xf:if>

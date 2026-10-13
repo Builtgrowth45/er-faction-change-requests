@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="option.erFactionCooldownDays" version_id="1000010" version_string="1.0.0"><![CDATA[Days between faction changes]]></phrase>
+  <phrase title="option.erFactionFieldDepartment" version_id="1000010" version_string="1.0.0"><![CDATA[Department field id]]></phrase>
+  <phrase title="option.erFactionFieldFaction" version_id="1000010" version_string="1.0.0"><![CDATA[Faction field id]]></phrase>
+  <phrase title="option.erFactionFieldIgn" version_id="1000010" version_string="1.0.0"><![CDATA[In-game name field id]]></phrase>
+  <phrase title="option.erFactionFieldRank" version_id="1000010" version_string="1.0.0"><![CDATA[Rank field id]]></phrase>
+  <phrase title="option.erFactionMap" version_id="1000010" version_string="1.0.0"><![CDATA[Factions]]></phrase>
+  <phrase title="option.erFactionRankFormat" version_id="1000010" version_string="1.0.0"><![CDATA[Rank field format]]></phrase>
+  <phrase title="option_explain.erFactionCooldownDays" version_id="1000010" version_string="1.0.0"><![CDATA[A member can't send a new request until this many days after their last approved change. 0 turns it off.]]></phrase>
+  <phrase title="option_explain.erFactionFieldDepartment" version_id="1000010" version_string="1.0.0"><![CDATA[Field id of a custom user field for the department or cell. Leave blank if there isn't one; the department can still go into the rank line through the format below.]]></phrase>
+  <phrase title="option_explain.erFactionFieldFaction" version_id="1000010" version_string="1.0.0"><![CDATA[Field id of the custom user field holding the faction key (led, fdc, gom, motb, vortex...). Faction leaders are matched to requests through this field.]]></phrase>
+  <phrase title="option_explain.erFactionFieldIgn" version_id="1000010" version_string="1.0.0"><![CDATA[Field id of the custom user field holding the in-game name. Leave blank to not write it.]]></phrase>
+  <phrase title="option_explain.erFactionFieldRank" version_id="1000010" version_string="1.0.0"><![CDATA[Field id of the custom user field shown as the rank line of the player box. Leave blank to not write it.]]></phrase>
+  <phrase title="option_explain.erFactionMap" version_id="1000010" version_string="1.0.0"><![CDATA[One faction per line: key|label|faction user group id|rank titles R0 to R7, comma separated. The key must match the choice key of the faction profile field. On approval the member is removed from every faction group listed here and added to the new one. Use 0 to leave groups alone for a faction.]]></phrase>
+  <phrase title="option_explain.erFactionRankFormat" version_id="1000010" version_string="1.0.0"><![CDATA[What is written to the rank field. Placeholders: {title} (e.g. Detective), {rank} (0-7), {department}, {faction}. Examples: {title} or {title} &middot; {department}.]]></phrase>
+  <phrase title="option_group.erFaction" version_id="1000010" version_string="1.0.0"><![CDATA[Faction change requests]]></phrase>
+  <phrase title="option_group_description.erFaction" version_id="1000010" version_string="1.0.0"><![CDATA[Factions, profile fields and rules for the faction change form.]]></phrase>
+  <phrase title="permission.erFaction_approveAny" version_id="1000010" version_string="1.0.0"><![CDATA[Approve any faction change request (staff)]]></phrase>
+  <phrase title="permission.erFaction_approveOwn" version_id="1000010" version_string="1.0.0"><![CDATA[Approve requests to join own faction (faction leaders)]]></phrase>
+  <phrase title="permission.erFaction_request" version_id="1000010" version_string="1.0.0"><![CDATA[Request a faction change]]></phrase>
+  <phrase title="permission_interface.erFaction" version_id="1000010" version_string="1.0.0"><![CDATA[Faction change requests]]></phrase>
+</phrases>

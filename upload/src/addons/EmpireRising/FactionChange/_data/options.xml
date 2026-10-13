@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="erFactionMap" edit_format="textbox" data_type="string" advanced="0">
+    <default_value># key|label|faction user group id|rank titles R0..R7 (comma separated)
+# key = the choice key of the Faction profile field (the faction-xxx class on the player box).
+# Group id 0 = leave user groups alone for that faction. Lines starting with # are ignored.
+led|LED|0|Trainee,Patrolman,Constable,Inspector,Detective,Superintendent,Commandant,Commissioner
+fdc|FDC|0|Trainee,Private,Corporal,Sergeant,Captain,Major,Colonel,General
+gom|GOM|0|Trainee,Protester,Activist,Separatist,Envoy,Delegate,Arbiter,Consul
+bos|BOS|0|Trainee,Vandal,Anarchist,Rebel,Initiate,Adept,Master,Harbinger
+motb|MotB|0|Trainee,Gunman,Marksman,Specialist,Veteran,Freelancer,Contractor,Leader
+cmg|CMG|0|Trainee,Colonist,Miner,Trader,Supervisor,Magistrate,Secretary,Director
+eurocore|EuroCore|0|Trainee,Worker,Technician,Controller,Designer,Manager,Executive,President
+vortex|VI|0|Trainee,Intern,Assistant,Researcher,Engineer,Analyst,Associate,CEO</default_value>
+    <edit_format_params>rows=14
+class=input--code</edit_format_params>
+    <relation group_id="erFaction" display_order="10"/>
+  </option>
+  <option option_id="erFactionFieldIgn" edit_format="textbox" data_type="string" advanced="0">
+    <default_value>ign</default_value>
+    <edit_format_params></edit_format_params>
+    <relation group_id="erFaction" display_order="20"/>
+  </option>
+  <option option_id="erFactionFieldFaction" edit_format="textbox" data_type="string" advanced="0">
+    <default_value>faction</default_value>
+    <edit_format_params></edit_format_params>
+    <relation group_id="erFaction" display_order="30"/>
+  </option>
+  <option option_id="erFactionFieldRank" edit_format="textbox" data_type="string" advanced="0">
+    <default_value>rank</default_value>
+    <edit_format_params></edit_format_params>
+    <relation group_id="erFaction" display_order="40"/>
+  </option>
+  <option option_id="erFactionFieldDepartment" edit_format="textbox" data_type="string" advanced="0">
+    <default_value></default_value>
+    <edit_format_params></edit_format_params>
+    <relation group_id="erFaction" display_order="50"/>
+  </option>
+  <option option_id="erFactionRankFormat" edit_format="textbox" data_type="string" advanced="0">
+    <default_value>{title}</default_value>
+    <edit_format_params></edit_format_params>
+    <relation group_id="erFaction" display_order="60"/>
+  </option>
+  <option option_id="erFactionCooldownDays" edit_format="spinbox" data_type="unsigned_integer" advanced="0">
+    <default_value>7</default_value>
+    <edit_format_params>min=0</edit_format_params>
+    <relation group_id="erFaction" display_order="70"/>
+  </option>
+</options>
